@@ -9,7 +9,7 @@ import toolbox.Validator;
 public class Persona {
 	private String Nombre, Apellido, nick, pwd, email;
 	private Date fechaNacimiento;
-	private Integer Id_Usuario_Unico;
+	private int  Id_Usuario_Unico;
 
 	/**
 	 * @param nombre
@@ -18,10 +18,10 @@ public class Persona {
 	 * @param pwd
 	 * @param email
 	 * @param fecha
-	 * @param id_Usuario_Unico
+	 * @param i
 	 */
 	public Persona(String nombre, String apellido, String nick, String pwd, String email, Date fecha,
-			Integer id_Usuario_Unico) {
+			int i) {
 		Nombre = nombre;
 		Apellido = apellido;
 		this.nick = nick;
@@ -32,13 +32,13 @@ public class Persona {
 			this.email = "";
 		}
 		this.fechaNacimiento = fecha;
-		Id_Usuario_Unico = id_Usuario_Unico;
+		Id_Usuario_Unico = i;
 		BBDD_Handeling ddbb = new BBDD_Handeling();
 		String[] query = { "Nombre", "Apellido", "nick", "pwd", "email", "fechaNacimiento", "Id_Usuario_Unico" };
 		if (!ddbb.tablaExiste(INT_Constantes.Tabla_Persona)) {
 			ddbb.crearTabla(INT_Constantes.Tabla_Persona, query);
 		}
-		String[] datos = { nombre, apellido, nick, pwd, email, fecha.toString(), id_Usuario_Unico.toString() };
+		String[] datos = { nombre, apellido, nick, pwd, email, fecha.toString(), String.valueOf(i) };
 		ddbb.insertarDatos(INT_Constantes.Tabla_Persona, datos);
 	}
 

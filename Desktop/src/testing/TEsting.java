@@ -12,7 +12,7 @@ public class TEsting {
 		fecha.setMonth(06);
 		fecha.setYear(1989);
 		Persona test = new Persona("Felipe", "Vasquez", "Bufigol", "12345", "felipe2@gmail.con", fecha, 1);
-
+		
 	}
 
 }
